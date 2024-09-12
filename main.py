@@ -1,5 +1,4 @@
-from fastapi import FastAPI, Form, Request, WebSocket
-from typing import Annotated
+from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
 from routes.chat_routes import router
@@ -10,6 +9,6 @@ app.include_router(router)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# @app.get("/")
-# async def root():
-#     return {"message": "Running!"}
+@app.get("/")
+async def root():
+    return {"message": "Running!"}
